@@ -82,7 +82,7 @@ run("tetrapak:boot", _) ->
                               plugin_tasks(Plugins, TaskConfigEnv, Env),
                               scan_local_tasks(tetrapak:path("tetrapak"))]),
     tetrapak_context:register_tasks(tetrapak_task:context(), tetrapak_task:directory(), RegTasks),
-    {done, [{version, Version}, {sbplugins, BuildNeeded}]};
+    {done, [{version, Version}, {sbplugins, lists:usort(BuildNeeded)}]};
 
 run("tetrapak:info", _) ->
     io:format("** version ~s~n~n", [tetrapak:get("tetrapak:boot:version")]),

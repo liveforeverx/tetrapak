@@ -108,6 +108,8 @@ ioreq_output({put_chars, M, F, A}) ->
     output_function(M, F, A);
 ioreq_output({requests, Requests}) ->
     io_requests(Requests, []);
+ioreq_output({setopts, [binary]}) ->
+    {ok, []};
 ioreq_output(_OtherRequest) ->
     {{error, enotsup}, []}.
 
